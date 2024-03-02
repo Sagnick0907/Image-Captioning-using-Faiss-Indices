@@ -6,53 +6,57 @@
   * [Goal](#goal)
   * [Technical Aspect](#technical-aspect)
   * [Technologies Used](#technologies-used)
+  * [Results](#results)
 
 ## Demo
 Example 1:  
-![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/b8a9a61b-1da9-4e7f-bdcb-1748e4de8b24)
-Ground Truth captions:  ['This wire metal rack holds several pairs of shoes and sandals', 'A dog sleeping on a show rack in the shoes.', 'Various slides and other footwear rest in a metal basket outdoors.', 'A small dog is curled up on top of the shoes', 'a shoe rack with some shoes and a dog sleeping on them']  
-Predicted caption:  The two dogs are sitting on a chair.  
+![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/b8a9a61b-1da9-4e7f-bdcb-1748e4de8b24)  
+**Ground Truth captions:**  ['This wire metal rack holds several pairs of shoes and sandals', 'A dog sleeping on a show rack in the shoes.', 'Various slides and other footwear rest in a metal basket outdoors.', 'A small dog is curled up on top of the shoes', 'a shoe rack with some shoes and a dog sleeping on them']  
+**Predicted caption:**  The two dogs are sitting on a chair.  
 
 Example 2:  
-![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/88d3f583-e6ca-404d-ac82-621fa46c46ff)
-Ground Truth captions:  ['A loft bed with a dresser underneath it.', 'A bed and desk in a small room.', 'Wooden bed on top of a white dresser.', 'A bed sits on top of a dresser and a desk.', 'Bunk bed with a narrow shelf sitting underneath it. ']  
-Predicted caption:  A bedroom with a bed, desk and entertainment console.  
+![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/88d3f583-e6ca-404d-ac82-621fa46c46ff)  
+**Ground Truth captions:**  ['A loft bed with a dresser underneath it.', 'A bed and desk in a small room.', 'Wooden bed on top of a white dresser.', 'A bed sits on top of a dresser and a desk.', 'Bunk bed with a narrow shelf sitting underneath it. ']  
+**Predicted caption:**  A bedroom with a bed, desk and entertainment console.  
 
-![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/08f55000-65ca-4f67-afd9-f8e5f892ee29)
-Ground Truth captions:  ['A motorcycle parked in a parking space next to another motorcycle.', 'An old motorcycle parked beside other motorcycles with a brown leather seat.', 'Motorcycle parked in the parking lot of asphalt.', 'A close up view of a motorized bicycle, sitting in a rack. ', 'The back tire of an old style motorcycle is resting in a metal stand. ']  
-Predicted caption:  a motorcycle that is parked in side a buliding  
+![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/08f55000-65ca-4f67-afd9-f8e5f892ee29)  
+**Ground Truth captions:**  ['A motorcycle parked in a parking space next to another motorcycle.', 'An old motorcycle parked beside other motorcycles with a brown leather seat.', 'Motorcycle parked in the parking lot of asphalt.', 'A close up view of a motorized bicycle, sitting in a rack. ', 'The back tire of an old style motorcycle is resting in a metal stand. ']  
+**Predicted caption:**  a motorcycle that is parked in side a buliding  
 
 
 ## Overview  
-Optical Mark Recognition (OMR) is the process of reading information that people mark on surveys, tests and other paper documents. The concept behind this paper is to develop a system that can check and evaluate the MCQ answers using the webcam. Till date many institutions and organization held many exams where user is provided with a separate question and answer sheet, where answer is multiple choice option, each option may be a square or circle and user is supposed to either tick or fill it using pen or pencil. In our project, we are going to create an Optical Mark Recognition algorithm in python using OpenCV right from scratch on PyCharm IDE. We can either use a student’s pre-saved OMR sheet image or use the webcam to scan the OMR sheet. The code produces instantaneous results which includes display of correct and wrong marked answers along with the final result over the image of student’s OMR sheet. We can also design the code such that we can handle different types of question format (number of questions & options). There would be not much problem even if the image is a slightly tilted view of the sheet but clear images and properly darkened circles are advisable. There is an additional functionality to save the resultant image also. A single OMR solution helps design, scan, and read OMR sheets in very less time. We can re-read the faulty data or make additional features to calculate the chances of cheating. So, with an OMR software, it is easy for educational intuitions to streamline the entire task thus increasing accuracy and time management.   
+Although VLMs (Vision Language Models) are the go to tools for image captioning right now, there are interesting works from earlier years that used KNN for captioning and perform surprisingly well enough!
+
+Further, Libraries like [Faiss](https://engineering.fb.com/2017/03/29/data-infrastructure/faiss-a-library-for-efficient-similarity-search/) can be used to perform the nearest neighbor computation efficiently and are used in many industrial applications. In this project we implemented an algorithm to perform Image captioning using KNN based on the paper [A Distributed Representation Based Query Expansion Approach for
+Image Captioning](https://aclanthology.org/P15-2018.pdf)  
 
 ## Motivation and Goal  
-At present OMR technology is very expensive because of which regular educational institutions cannot avail it and thus resort to manual checking of papers where they note down all the answers and match them with official answer key for each given student to obtain the result. On an average based on number of question’s evaluating each paper may take around 5 minutes. Hence if there are 100 students then it will take around 500 minutes or 8.3 hours of long monotonous evaluation. The main purpose of our project is to save money, time and manpower and also increase accuracy by automating this trivial task of checking and matching the answers for thousands of papers. Our OMR application might not match the flexibility and performance of a high-level OMR scanner used by various institutes yet but it fulfils the basic needs of various institutions and organizations.  
+The motivation of the project is to explore an alternative method for image captioning using the k-nearest neighbors (KNN) algorithm, particularly leveraging the Faiss library for efficient similarity search. The goal includes implementing and evaluating the KNN-based algorithm, experimenting with different values for k, optimizing the algorithm's performance using Faiss, and conducting a qualitative study by visualizing images and predicted captions. The project aims to assess the viability of the KNN approach in comparison to other methods like Vision Language Models (VLMs).  
 
 ## Technical Aspect  
+- Dataset: [MS COCO](https://cocodataset.org/#home) 2014 (val set only)  
 
-Our proposed methodology involves generating results from a marked OMR sheets using inbuilt image transformation functions, contour detection and display functions. We will be using OpenCV library in the back-end and Tkinter library for UI. 
-Firstly, we design the OMR template for the question which we will be scanning. 
-![image](https://github.com/Sagnick0907/Final-Year-Project/assets/76872499/040b0292-85af-455c-af2e-0d4440eae31f) | ![image](https://github.com/Sagnick0907/Final-Year-Project/assets/76872499/37487be8-2508-4b32-b156-8dce73ceee68)  
-Then we will discuss the detailed backend working of our system and cover the basic intuition of how system is working. 
-1.	For taking inputs, we have 2 options: (i). To take a snapshot of the answer sheet and select it from the target directory or, (ii). Produce the output over the answer sheet in real-time using webcam. For this, we have used webCamFeed and cv2.VideoCapture() named functions from OpenCV. 
-2.	Then we will create multiple copies of the image in Gray scale format, used Gaussian blur to create blurred format & Canny function to detect edges. This makes it helpful for easily detecting marked/ highlighted points by user. The high blur helps reduce the high frequency noise, that means distortion of image. Also created a custom function for displaying multiple images simultaneously.
-3.	The next step will be to extract the biggest contour from the given image. We will use the cv2.findContours and custom-made complex functions to find all the 4-cornered point contours sorted in descending order (Here, the largest rectangle bounds the bubbles/options & the 2nd largest figure is where the result is to be displayed).
-4.	After getting the outline, we used a reorder function to find & fix the 4 corner points of that contour so that they don’t get jumbled up later. We then use getPerspectiveTransform() such that it gives top-down, bird’s eye view of previous 2 images. This gives a get 90-degree view of our image.  
-5.	The 5th step is to extract bubble options present within the answer page for this we again use perspective transformation and binarization. In order to find the bubbles within image there are many ways. Here use SplitBoxes() custom function to split the rectangle image into horizontal and vertical slices as per the no. of question and choices and then store the resultant square images in a nested array and return it.
-6.	In order to know which option is marked, we will iterate through all the images one by one for each row and find the image/option with the maximum number of pixels and store this option as the answer of that row in a resultant matrix. Now we create a function that checks whether each highlighted answer is correct or not. Here one has to provide the array of our answer before. Now iterate through the resultant array that was obtained earlier and compare each option with the actual answer array to check whether it is correct or not.
-7.	Now for the grading, we compare the result we got above with the actual result and calculate the percentage.
-8.	Finally, we will display the answer. The correct answer is highlighted with green colour whereas wrong answer is highlighted with red colour using cv2.circle function of OpenCV. We do an inverse transformation of these highlighted circles so that they appear on the original mark sheet. Similarly, we display the percentage obtained on the answer box of the image.
+Algorithm:  
+1. Given: Image embeddings and correspond caption embeddings (5 Per image)
+2. For every image, findout the k nearest images and compute its query vector as the weighted sum of the captions of the nearest images (k*5 captions per image)
+3. The predicted caption would be the caption in the dataset that is closest to the query vector. (for the sake of the assignment use the same coco val set captions as the dataset)
 
-For the frontend section we used the following approach:
-1.	We used Tkinter GUI Toolkit for building the GUI for our OMR evaluation software.
-2.	In it we included labels and buttons for designing the GUI using grid methodology.
-3.	Three buttons are created: Upload Image button, Check Score button and Webcam live Checking button.
-4.	Then connected the appropriate functions for the different functionalities of the buttons.
-
-![image](https://github.com/Sagnick0907/Final-Year-Project/assets/76872499/8ad4e338-52e4-4daf-9766-6954d0f07a00)
+Tasks:
+1. Implemented the algorithm and compute the bleu score. Use Faiss for nearest neighbor computation.
+2. Tried for a few options for k. Recorded the observations.  
+3. For a fixed k, tried a few options in the Faiss index factory to speed the computation in step 2. Recorded the observations.
+4. Qualitative study: Visualize five images, their ground truth captions and the predicted caption.
 
 ## Technologies Used
-- Pycharm
-- Concepts used : Image Filtering, Custom 4-sided Contour Detection, Warp Perspective Transformation, Display.  
-- Libraries: cv2, numpy, Tkinter.
+- Google Colab  
+- Concepts used : Faiss Indices (IndexFlatIP, IndexFlatL2, IndexIVFFlat, IndexHNSWFlat), cosine similarity.    
+- Libraries: torchvision.datasets, torchvision.transforms, DataLoader, torch, torch.nn, torch.nn.functional, bleu_score, faiss, np, matplotlib.pyplot
+
+## Results
+|    Faiss Index   |    Bleu Score       |     k       |
+|:-------------:|:-------------:|:-------------:|
+|   IndexFlatIP   |  0.0723923250317784   |  5   |
+|   IndexFlatL2   |   0.07252093419068131   |  5  |
+|   IndexIVFFlat   |   0.07080728032053231   |  5  |
+|   IndexHNSWFlat   |   0.07043850246759856   |  5  |
+
