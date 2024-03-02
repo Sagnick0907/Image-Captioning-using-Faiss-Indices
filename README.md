@@ -1,6 +1,4 @@
 # Image-Captioning-using-Faiss-Indices
-# Final-Year-Project
-# Optical Mark Recognition Application using Python & OpenCV  
 
 ## Table of Content
   * [Demo](#demo)
@@ -10,10 +8,8 @@
   * [Technologies Used](#technologies-used)
 
 ## Demo
-![image](https://github.com/Sagnick0907/Final-Year-Project/assets/76872499/ed8884d6-9d38-4620-a127-4480fa26857e)
-![2nd image](https://github.com/Sagnick0907/Final-Year-Project/assets/76872499/2f13e811-424e-4cfc-8c15-2505cff5e97e)
-Result:  
-![Final 2nd img](https://github.com/Sagnick0907/Final-Year-Project/assets/76872499/ca89223c-c4eb-4d69-b58c-63601dfc3e8c)
+![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/b8a9a61b-1da9-4e7f-bdcb-1748e4de8b24)
+
 
 
 ## Overview  
