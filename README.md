@@ -8,8 +8,19 @@
   * [Technologies Used](#technologies-used)
 
 ## Demo
+Example 1:  
 ![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/b8a9a61b-1da9-4e7f-bdcb-1748e4de8b24)
+Ground Truth captions:  ['This wire metal rack holds several pairs of shoes and sandals', 'A dog sleeping on a show rack in the shoes.', 'Various slides and other footwear rest in a metal basket outdoors.', 'A small dog is curled up on top of the shoes', 'a shoe rack with some shoes and a dog sleeping on them']  
+Predicted caption:  The two dogs are sitting on a chair.  
 
+Example 2:  
+![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/88d3f583-e6ca-404d-ac82-621fa46c46ff)
+Ground Truth captions:  ['A loft bed with a dresser underneath it.', 'A bed and desk in a small room.', 'Wooden bed on top of a white dresser.', 'A bed sits on top of a dresser and a desk.', 'Bunk bed with a narrow shelf sitting underneath it. ']  
+Predicted caption:  A bedroom with a bed, desk and entertainment console.  
+
+![image](https://github.com/Sagnick0907/Image-Captioning-using-Faiss-Indices/assets/76872499/08f55000-65ca-4f67-afd9-f8e5f892ee29)
+Ground Truth captions:  ['A motorcycle parked in a parking space next to another motorcycle.', 'An old motorcycle parked beside other motorcycles with a brown leather seat.', 'Motorcycle parked in the parking lot of asphalt.', 'A close up view of a motorized bicycle, sitting in a rack. ', 'The back tire of an old style motorcycle is resting in a metal stand. ']  
+Predicted caption:  a motorcycle that is parked in side a buliding  
 
 
 ## Overview  
